@@ -1,0 +1,69 @@
+var inquirer = require('inquirer');
+const cp = ('child_process');
+
+function displaydetails(){
+
+inquirer
+  .prompt([
+      {
+    /* Pass your questions in here */
+     type:'list',
+     name:'selection',
+     choices:['skills' , 'projects' , 'about' , 'academics']
+}
+
+])
+  .then((choices) => {
+if(choices.selection =='about'){
+    console.log(`A highly motivated individual and passionate learner looking for a challenging position where i can utilize my skillset for the growth of self and the company`);
+        displaynext()
+  }
+
+  else if(choices.selection =='skills'){
+    console.log('bhot hai ')
+  displaynext()
+  }
+
+  else if(choices.selection =='projects'){
+    cp.execSync('start chrome https://github.com/DKathuria18')
+  displaynext()
+  }
+
+  else if(choices.selection =='academics'){
+    console.log('abhi kuch khaas ni')
+  displaynext()
+  }
+
+})
+  .catch((error) => {
+    if (error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else went wrong
+    }
+  })
+
+}
+
+displaydetails()
+
+function displaynext()
+{
+
+  var inquirer = require('inquirer');
+  inquirer
+    .prompt([
+      {
+      type:'list',
+      name:'goback',
+      choices:['back']
+    }
+
+    ])
+    .then((choice) => {
+     if(choice.goback = 'back'){
+       displaydetails()
+     
+     }
+     })
+    }
